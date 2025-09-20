@@ -10,17 +10,19 @@ import {
   Presentation, 
   GraduationCap 
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
     icon: <GraduationCap className="h-8 w-8 text-primary" />,
     title: "Placement Induction",
     description: "Comprehensive programs to prepare final-year students for campus placements.",
+    className: "lg:col-span-2",
   },
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
     title: "Aptitude Training",
-    description: "Master quantitative, logical, and verbal reasoning skills for competitive exams.",
+    description: "Master quantitative, logical, and verbal reasoning skills.",
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
@@ -28,6 +30,12 @@ const services = [
     description: "Techniques to confidently handle technical and HR interview rounds.",
   },
   {
+    icon: <Code className="h-8 w-8 text-primary" />,
+    title: "Technical Training",
+    description: "Workshops on in-demand programming languages and technical concepts.",
+    className: "lg:col-span-2",
+  },
+   {
     icon: <MessageSquare className="h-8 w-8 text-primary" />,
     title: "Communication Skills",
     description: "Enhance verbal and written communication for professional environments.",
@@ -38,24 +46,20 @@ const services = [
     description: "Craft compelling resumes that capture the attention of recruiters.",
   },
   {
-    icon: <Code className="h-8 w-8 text-primary" />,
-    title: "Technical Training",
-    description: "Workshops on in-demand programming languages and technical concepts.",
-  },
-  {
     icon: <Users className="h-8 w-8 text-primary" />,
     title: "Soft Skills",
-    description: "Develop crucial interpersonal skills like teamwork, leadership, and etiquette.",
+    description: "Develop crucial interpersonal skills like teamwork and leadership.",
   },
   {
     icon: <Building className="h-8 w-8 text-primary" />,
     title: "Corporate Workshops",
-    description: "Customized training solutions for companies and working professionals.",
+    description: "Customized training solutions for companies.",
+    className: "lg:col-span-2",
   },
   {
     icon: <Presentation className="h-8 w-8 text-primary" />,
     title: "Webinars",
-    description: "Engaging online sessions on various career development topics.",
+    description: "Engaging online sessions on career development topics.",
   },
 ];
 
@@ -71,16 +75,21 @@ export function ServicesShowcase() {
             We offer a comprehensive suite of training programs designed to equip students with the skills needed for a successful career.
           </p>
         </div>
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {services.map((service) => (
-            <Card key={service.title} className="flex flex-col items-start p-6 hover:shadow-lg transition-shadow duration-300">
-              <div className="mb-4">{service.icon}</div>
-              <CardHeader className="p-0">
-                <CardTitle className="text-lg font-bold">{service.title}</CardTitle>
-              </CardHeader>
-              <CardDescription className="mt-2 text-base">
-                {service.description}
-              </CardDescription>
+            <Card key={service.title} className={cn("group relative flex flex-col justify-between overflow-hidden p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1", service.className)}>
+               <div className="absolute -right-12 -bottom-12 text-primary/5 group-hover:scale-[3] group-hover:-translate-x-4 group-hover:-translate-y-4 transition-transform duration-500 ease-out">
+                {service.icon}
+              </div>
+              <div className="relative z-10">
+                <div className="mb-4">{service.icon}</div>
+                <CardHeader className="p-0">
+                  <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+                </CardHeader>
+                <CardDescription className="mt-2 text-base">
+                  {service.description}
+                </CardDescription>
+              </div>
             </Card>
           ))}
         </div>
