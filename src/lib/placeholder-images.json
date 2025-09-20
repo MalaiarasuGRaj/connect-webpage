@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Background image for the hero section showing students collaborating.",
-      "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
-      "imageHint": "students collaboration"
+      "description": "Background image for the hero section showing a training session.",
+      "imageUrl": "https://picsum.photos/seed/training-session/1920/1080",
+      "imageHint": "training session"
     },
     {
       "id": "murali-dharan",
