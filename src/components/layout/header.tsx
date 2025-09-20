@@ -13,10 +13,8 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/blog", label: "Blog" },
+  { href: "/case-studies", label: "Testimonials" },
   { href: "/careers", label: "Careers" },
-  { href: "/faq", label: "FAQ" },
 ];
 
 export function Header() {
