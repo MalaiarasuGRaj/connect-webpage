@@ -1,24 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight } from "lucide-react";
 
 export function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
-
   return (
     <section className="relative w-full h-[70vh] min-h-[500px] max-h-[720px] flex items-center justify-center text-center text-white">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          data-ai-hint={heroImage.imageHint}
-          fill
-          className="object-cover"
-          priority
-        />
-      )}
+      <Image
+        src="/training-session.jpg"
+        alt="A training session in progress"
+        data-ai-hint="training session"
+        fill
+        className="object-cover"
+        priority
+      />
       <div className="absolute inset-0 bg-black/50" />
       <div className="relative z-10 container px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
