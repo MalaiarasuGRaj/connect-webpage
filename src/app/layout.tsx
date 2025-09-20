@@ -7,6 +7,9 @@ import { Toaster } from "@/components/ui/toaster"
 export const metadata: Metadata = {
   title: 'Connect Training Solutions | Bridging Academia and Industry',
   description: 'Connect Training Solutions Pvt Ltd offers placement training for engineering students to bridge the gap between academics and industry requirements.',
+  icons: {
+    icon: '/images/logo.jpeg',
+  },
 };
 
 export default function RootLayout({
