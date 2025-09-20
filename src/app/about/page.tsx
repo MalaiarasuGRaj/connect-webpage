@@ -5,17 +5,17 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 const teamMembers = [
   {
     name: "Murali Dharan Rajasekar",
-    role: "Founder & CEO",
+    role: "Director",
     imageId: "murali-dharan",
   },
   {
     name: "Angala Eswari",
-    role: "Co-Founder & COO",
+    role: "Director",
     imageId: "angala-eswari",
   },
   {
     name: "Abinaya Murali",
-    role: "Head of Operations",
+    role: "Managing Director",
     imageId: "abinaya-murali",
   },
 ];
