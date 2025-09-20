@@ -11,10 +11,7 @@ export function Logo({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
         height={32}
         className="rounded-md"
       />
-      <div className="flex flex-col">
-        <span className="text-lg leading-tight">Connect</span>
-        <span className="text-xs leading-tight">Training Solutions</span>
-      </div>
+      <span className="text-xl leading-tight">onnecto</span>
     </div>
   )
 }
