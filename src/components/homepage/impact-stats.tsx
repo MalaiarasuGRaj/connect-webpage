@@ -36,7 +36,7 @@ export function ImpactStats() {
                 </div>
                 <div className="mt-12 grid gap-8 md:grid-cols-3">
                     {stats.map((stat) => (
-                        <Card key={stat.label} className="text-center">
+                        <Card key={stat.label} className="text-center transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
                             <CardHeader className="flex flex-col items-center">
                                 {stat.icon}
                                 <CardTitle className="text-4xl font-extrabold mt-4">
