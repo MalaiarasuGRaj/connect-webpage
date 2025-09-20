@@ -1,12 +1,6 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-background",
-      "description": "Background image for the hero section showing a training session.",
-      "imageUrl": "https://picsum.photos/seed/training-session/1920/1080",
-      "imageHint": "training session"
-    },
-    {
       "id": "murali-dharan",
       "description": "Portrait of Murali Dharan Rajasekar.",
       "imageUrl": "https://picsum.photos/seed/murali/400/400",
