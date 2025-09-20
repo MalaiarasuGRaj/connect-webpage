@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Background image for the hero section showing students collaborating.",
+      "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
+      "imageHint": "students collaboration"
+    },
+    {
+      "id": "murali-dharan",
+      "description": "Portrait of Murali Dharan Rajasekar.",
+      "imageUrl": "https://picsum.photos/seed/murali/400/400",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "angala-eswari",
+      "description": "Portrait of Angala Eswari.",
+      "imageUrl": "https://picsum.photos/seed/angala/400/400",
+      "imageHint": "professional woman"
+    },
+    {
+      "id": "abinaya-murali",
+      "description": "Portrait of Abinaya Murali.",
+      "imageUrl": "https://picsum.photos/seed/abinaya/400/400",
+      "imageHint": "professional woman portrait"
+    },
+    {
+      "id": "team-photo",
+      "description": "A group photo of the Connect Training Solutions team.",
+      "imageUrl": "https://picsum.photos/seed/team/1200/800",
+      "imageHint": "diverse team"
+    },
+    {
+      "id": "testimonial-1",
+      "description": "Avatar for Priya Sharma.",
+      "imageUrl": "https://picsum.photos/seed/test1/100/100",
+      "imageHint": "student avatar"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "Avatar for Dr. Anand Kumar.",
+      "imageUrl": "https://picsum.photos/seed/test2/100/100",
+      "imageHint": "professor avatar"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "Avatar for Rahul Verma.",
+      "imageUrl": "https://picsum.photos/seed/test3/100/100",
+      "imageHint": "developer avatar"
+    },
+    {
+      "id": "testimonial-4",
+      "description": "Avatar for Sunita Reddy.",
+      "imageUrl": "https://picsum.photos/seed/test4/100/100",
+      "imageHint": "manager avatar"
+    },
+    {
+      "id": "testimonial-5",
+      "description": "Avatar for Amit Patel.",
+      "imageUrl": "https://picsum.photos/seed/test5/100/100",
+      "imageHint": "engineer avatar"
+    },
+    {
+      "id": "case-study-1",
+      "description": "Image for a case study about a successful student placement.",
+      "imageUrl": "https://picsum.photos/seed/cs1/600/400",
+      "imageHint": "happy graduate"
+    },
+    {
+      "id": "case-study-2",
+      "description": "Image for a case study about institutional collaboration.",
+      "imageUrl": "https://picsum.photos/seed/cs2/600/400",
+      "imageHint": "college campus"
+    },
+    {
+      "id": "blog-resume",
+      "description": "Header image for the resume writing blog post.",
+      "imageUrl": "https://picsum.photos/seed/blog1/1200/600",
+      "imageHint": "writing resume"
+    },
+    {
+      "id": "blog-interview",
+      "description": "Header image for the technical interview blog post.",
+      "imageUrl": "https://picsum.photos/seed/blog2/1200/600",
+      "imageHint": "job interview"
+    },
+     {
+      "id": "careers-banner",
+      "description": "Banner image for the careers page showing a modern office.",
+      "imageUrl": "https://picsum.photos/seed/careers/1200/400",
+      "imageHint": "modern office"
+    }
+  ]
 }
