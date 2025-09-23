@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { 
   BrainCircuit, 
   Briefcase, 
@@ -6,60 +6,31 @@ import {
   FileText, 
   Code, 
   Users, 
-  Building, 
-  Presentation, 
-  GraduationCap 
+  TrendingUp,
+  Target
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const services = [
-  {
-    icon: <GraduationCap className="h-8 w-8 text-primary" />,
-    title: "Placement Induction",
-    description: "Comprehensive programs to prepare final-year students for campus placements.",
-    className: "lg:col-span-2",
-  },
+const trainingAreas = [
   {
     icon: <BrainCircuit className="h-8 w-8 text-primary" />,
-    title: "Aptitude Training",
-    description: "Master quantitative, logical, and verbal reasoning skills.",
-  },
-  {
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
-    title: "Interview Skills",
-    description: "Techniques to confidently handle technical and HR interview rounds.",
+    title: "Core Aptitude Mastery",
+    description: "Build a strong foundation in logical, quantitative, and verbal reasoning to excel in any placement test.",
   },
   {
     icon: <Code className="h-8 w-8 text-primary" />,
-    title: "Technical Training",
-    description: "Workshops on in-demand programming languages and technical concepts.",
-    className: "lg:col-span-2",
-  },
-   {
-    icon: <MessageSquare className="h-8 w-8 text-primary" />,
-    title: "Communication Skills",
-    description: "Enhance verbal and written communication for professional environments.",
-  },
-  {
-    icon: <FileText className="h-8 w-8 text-primary" />,
-    title: "Resume Writing",
-    description: "Craft compelling resumes that capture the attention of recruiters.",
+    title: "Technical Skill Enhancement",
+    description: "Gain hands-on experience with in-demand programming languages and technologies relevant to industry needs.",
   },
   {
     icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Soft Skills",
-    description: "Develop crucial interpersonal skills like teamwork and leadership.",
+    title: "Professional Skills Development",
+    description: "Develop crucial soft skills, including communication, teamwork, and leadership, to thrive in corporate environments.",
   },
   {
-    icon: <Building className="h-8 w-8 text-primary" />,
-    title: "Corporate Workshops",
-    description: "Customized training solutions for companies.",
-    className: "lg:col-span-2",
-  },
-  {
-    icon: <Presentation className="h-8 w-8 text-primary" />,
-    title: "Webinars",
-    description: "Engaging online sessions on career development topics.",
+    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    title: "Interview Readiness",
+    description: "Master the art of interviewing with mock sessions, resume workshops, and strategies for both technical and HR rounds.",
   },
 ];
 
@@ -67,28 +38,40 @@ export function HomeServices() {
   return (
     <section id="services" className="py-16 sm:py-24 bg-background">
       <div className="container">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">
-            Our Training Programs
-          </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            We offer a comprehensive suite of training programs designed to equip students with the skills needed for a successful career.
-          </p>
-        </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <Card key={service.title} className={cn("bg-card text-card-foreground overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl", service.className)}>
-              <CardHeader className="p-6">
-                <div className="mb-4 flex items-center justify-center h-12 w-12 rounded-full bg-primary/10">
-                  {service.icon}
-                </div>
-                <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                <CardDescription className="text-base text-muted-foreground pt-2">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="pr-8">
+            <p className="text-primary font-semibold tracking-wide">WHAT WE DO</p>
+            <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl mt-2">
+              A Curriculum Designed for Success
+            </h2>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Our training methodology goes beyond traditional learning. We focus on a holistic approach that ensures every student is not just academically proficient, but also professionally prepared for the challenges of the modern workplace.
+            </p>
+            <div className="mt-8 flex items-center gap-4">
+              <div className="flex-shrink-0 bg-primary/10 p-3 rounded-full">
+                <Target className="h-6 w-6 text-primary" />
+              </div>
+              <p className="font-semibold text-foreground">Our goal is to turn potential into high-performance careers.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {trainingAreas.map((area) => (
+              <Card key={area.title} className="bg-card text-card-foreground transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1">
+                <CardHeader>
+                  <div className="mb-4">
+                    {area.icon}
+                  </div>
+                  <CardTitle className="text-lg font-bold">{area.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    {area.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
