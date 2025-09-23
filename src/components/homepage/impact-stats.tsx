@@ -1,24 +1,30 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, School, Star } from "lucide-react";
+import { AnimatedCounter } from "./animated-counter";
 
 const stats = [
     {
         icon: <Users className="h-10 w-10 text-primary" />,
-        value: "300,000+",
+        value: 300000,
         label: "Students Trained",
-        description: "Across various engineering disciplines and regions in India."
+        description: "Across various engineering disciplines and regions in India.",
+        suffix: "+"
     },
     {
         icon: <School className="h-10 w-10 text-primary" />,
-        value: "100+",
+        value: 100,
         label: "Institutions Served",
-        description: "Partnering with colleges to enhance their placement outcomes."
+        description: "Partnering with colleges to enhance their placement outcomes.",
+        suffix: "+"
     },
     {
         icon: <Star className="h-10 w-10 text-primary" />,
-        value: "4.8/5",
+        value: 4.8,
         label: "Average Rating",
-        description: "Based on 359 reviews from students and college management."
+        description: "Based on 359 reviews from students and college management.",
+        suffix: "/5"
     }
 ]
 
@@ -40,7 +46,8 @@ export function ImpactStats() {
                             <CardHeader className="flex flex-col items-center">
                                 {stat.icon}
                                 <CardTitle className="text-4xl font-extrabold mt-4">
-                                    {stat.value}
+                                    <AnimatedCounter from={0} to={stat.value} />
+                                    {stat.suffix}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
