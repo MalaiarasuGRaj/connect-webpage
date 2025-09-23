@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative w-full h-[70vh] min-h-[500px] max-h-[720px] flex items-center justify-center text-center text-white">
       <Image
-        src="/images/training-session.jpg"
+        src="/images/training-session.png"
         alt="A training session in progress"
         data-ai-hint="training session"
         fill
