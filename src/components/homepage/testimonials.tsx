@@ -60,8 +60,8 @@ export function Testimonials() {
                 )
             })}
           </CarouselContent>
-          <CarouselPrevious className="hidden lg:flex" />
-          <CarouselNext className="hidden lg:flex" />
+          <CarouselPrevious className="flex -left-2 sm:-left-4 lg:-left-12" />
+          <CarouselNext className="flex -right-2 sm:-right-4 lg:-right-12" />
         </Carousel>
       </div>
     </section>
