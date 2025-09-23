@@ -8,7 +8,7 @@ type AnimatedCounterProps = {
   duration?: number;
 };
 
-export function AnimatedCounter({ from = 0, to, duration = 1.5 }: AnimatedCounterProps) {
+export function AnimatedCounter({ from = 0, to, duration = 2 }: AnimatedCounterProps) {
   const [count, setCount] = useState(from);
   const isDecimal = to % 1 !== 0;
 
@@ -31,7 +31,7 @@ export function AnimatedCounter({ from = 0, to, duration = 1.5 }: AnimatedCounte
         requestAnimationFrame(step);
       }
     };
-    requestAnimationFrame(step);
+      requestAnimationFrame(step);
   }, [to, from, duration, isDecimal]);
 
   const formatNumber = (num: number) => {

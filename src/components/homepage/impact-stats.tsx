@@ -3,6 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, School, Star } from "lucide-react";
 import { AnimatedCounter } from "./animated-counter";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
     {
@@ -29,8 +30,37 @@ const stats = [
 ]
 
 export function ImpactStats() {
+    const [inView, setInView] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setInView(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                rootMargin: "0px",
+                threshold: 0.1
+            }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if(ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, []);
+
+
     return (
-        <section id="impact" className="py-16 sm:py-24 bg-secondary">
+        <section id="impact" className="py-16 sm:py-24 bg-secondary" ref={ref}>
             <div className="container">
                 <div className="text-center">
                     <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">
@@ -46,7 +76,8 @@ export function ImpactStats() {
                             <CardHeader className="flex flex-col items-center">
                                 {stat.icon}
                                 <CardTitle className="text-4xl font-extrabold mt-4">
-                                    <AnimatedCounter from={0} to={stat.value} />
+                                    {inView && <AnimatedCounter from={0} to={stat.value} />}
+                                    {!inView && (stat.value % 1 !== 0 ? '0.0' : '0')}
                                     {stat.suffix}
                                 </CardTitle>
                             </CardHeader>
