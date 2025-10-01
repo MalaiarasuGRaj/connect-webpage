@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Connect Training Solutions",
+  description: "Learn about the mission, vision, and leadership of Connect Training Solutions, founded in 2015 to bridge the gap between academia and industry.",
+};
 
 const teamMembers = [
   {

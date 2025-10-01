@@ -5,6 +5,13 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 import { testimonials } from '@/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Testimonials | Connect Training Solutions",
+  description: "Read testimonials from students, engineering colleges, and industry professionals who have benefited from our placement training programs.",
+};
+
 
 export default function TestimonialsPage() {
   return (

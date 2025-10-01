@@ -13,6 +13,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/blog", label: "Blog" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/careers", label: "Careers" },
 ];
@@ -37,21 +38,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <Link href="/" className="flex items-center">
-          <Logo />
-        </Link>
-
-        <div className="ml-auto flex items-center gap-4">
-          <nav className="hidden items-center gap-6 md:flex">
-            {navItems.map((item) => (
-              <NavLink key={item.href} {...item} />
-            ))}
-          </nav>
-           <Button asChild>
-              <Link href="/contact">Contact Us</Link>
-            </Button>
+        <div className="md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild>
               <Button variant="outline" size="icon">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
@@ -69,6 +58,28 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
+        </div>
+
+        <Link href="/" className="hidden md:flex items-center mr-auto">
+          <Logo />
+        </Link>
+
+         <div className="flex items-center justify-center md:justify-start flex-1 md:flex-none">
+          <Link href="/" className="flex items-center md:hidden">
+            <Logo />
+          </Link>
+        </div>
+
+
+        <div className="flex items-center gap-4">
+          <nav className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => (
+              <NavLink key={item.href} {...item} />
+            ))}
+          </nav>
+           <Button asChild>
+              <Link href="/contact">Contact Us</Link>
+            </Button>
         </div>
       </div>
     </header>

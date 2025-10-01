@@ -3,6 +3,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Connect Training Solutions",
+  description: "Get in touch with Connect Training Solutions for inquiries about our placement training programs, partnerships, or any other questions.",
+};
 
 export default function ContactPage() {
   return (

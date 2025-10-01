@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, Briefcase, GraduationCap } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Careers | Join Our Team at Connect Training Solutions",
+  description: "Explore career opportunities at Connect Training Solutions. We are looking for passionate individuals to join our team of trainers and content developers.",
+};
+
 
 const opportunities = [
     {
