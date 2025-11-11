@@ -6,7 +6,7 @@ import { ArrowRight, Briefcase, GraduationCap } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers | Join Our Team at Connect Training Solutions",
+  title: "Careers - Join Our Team",
   description: "Explore career opportunities at Connect Training Solutions. We are looking for passionate individuals to join our team of trainers and content developers.",
 };
 

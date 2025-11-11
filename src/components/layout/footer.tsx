@@ -22,7 +22,7 @@ export function Footer() {
                 <Logo />
             </Link>
             <p className="text-sm max-w-sm">
-                Connect Training Solutions is dedicated to bridging the gap between academics and industry, empowering the next generation of professionals.
+                Connect Training Solutions Pvt Ltd is dedicated to bridging the gap between academics and industry, empowering the next generation of professionals.
             </p>
           </div>
           <div>
@@ -64,7 +64,7 @@ export function Footer() {
         </div>
         <div className="mt-8 pt-8 border-t">
           <p className="text-center text-sm">
-            © {new Date().getFullYear()} Connect Training Solutions. All rights reserved.
+            © {new Date().getFullYear()} Connect Training Solutions Pvt Ltd. All rights reserved.
           </p>
         </div>
       </div>

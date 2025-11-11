@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Connect Training Solutions",
+  title: "Contact Us",
   description: "Get in touch with Connect Training Solutions for inquiries about our placement training programs, partnerships, or any other questions.",
 };
 

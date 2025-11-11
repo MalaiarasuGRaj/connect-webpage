@@ -7,7 +7,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { format } from 'date-fns';
 
 export const metadata: Metadata = {
-  title: "Blog | Placement Training & Interview Tips | Connect Training Solutions",
+  title: "Blog - Placement Training & Interview Tips",
   description: "Read our blog for the latest tips on placement training, resume writing, acing technical interviews for companies like TCS, and other career advice.",
 };
 

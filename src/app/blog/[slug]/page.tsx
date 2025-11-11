@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${post.title} | Connect Training Solutions Blog`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
         title: post.title,

@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Testimonials | Connect Training Solutions",
+  title: "Testimonials",
   description: "Read testimonials from students, engineering colleges, and industry professionals who have benefited from our placement training programs.",
 };
 
