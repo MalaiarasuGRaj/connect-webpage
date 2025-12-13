@@ -1,31 +1,34 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, School, Star } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
 import { AnimatedCounter } from "./animated-counter";
-import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const stats = [
     {
-        icon: <Users className="h-10 w-10 text-primary" />,
         value: 300000,
         label: "Students Trained",
-        description: "Across various engineering disciplines and regions in India.",
-        suffix: "+"
+        suffix: "+",
+        highlight: "text-blue-500"
     },
     {
-        icon: <School className="h-10 w-10 text-primary" />,
         value: 100,
-        label: "Institutions Served",
-        description: "Partnering with colleges to enhance their placement outcomes.",
-        suffix: "+"
+        label: "Institutions Partnered",
+        suffix: "+",
+        highlight: "text-purple-500"
     },
     {
-        icon: <Star className="h-10 w-10 text-primary" />,
+        value: 95,
+        label: "Placement Success Rate",
+        suffix: "%",
+        highlight: "text-green-500"
+    },
+    {
         value: 4.8,
         label: "Average Rating",
-        description: "Based on 359 reviews from students and college management.",
-        suffix: "/5"
+        suffix: "/5",
+        highlight: "text-orange-500",
+        decimal: true
     }
 ]
 
@@ -41,10 +44,7 @@ export function ImpactStats() {
                     observer.disconnect();
                 }
             },
-            {
-                rootMargin: "0px",
-                threshold: 0.1
-            }
+            { threshold: 0.1 }
         );
 
         if (ref.current) {
@@ -52,40 +52,35 @@ export function ImpactStats() {
         }
 
         return () => {
-            if(ref.current) {
-                observer.unobserve(ref.current);
-            }
+            if (ref.current) observer.unobserve(ref.current);
         };
     }, []);
 
-
     return (
-        <section id="impact" className="py-16 sm:py-24 bg-secondary" ref={ref}>
-            <div className="container">
-                <div className="text-center">
-                    <h2 className="text-3xl font-bold tracking-tight font-headline sm:text-4xl">
-                        Our Impact in Numbers
+        <section className="py-24 bg-background relative" ref={ref}>
+            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+            <div className="container px-4 md:px-6 relative z-10">
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight font-headline mb-6">
+                        Making a Real Difference
                     </h2>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-                        We are proud of the tangible results we've delivered, transforming student careers and supporting academic institutions.
+                    <p className="text-xl text-muted-foreground">
+                        Numbers that reflect our commitment to excellence and student success across the nation.
                     </p>
                 </div>
-                <div className="mt-12 grid gap-8 md:grid-cols-3">
-                    {stats.map((stat) => (
-                        <Card key={stat.label} className="text-center transition-transform duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-                            <CardHeader className="flex flex-col items-center">
-                                {stat.icon}
-                                <CardTitle className="text-4xl font-extrabold mt-4">
-                                    {inView && <AnimatedCounter from={0} to={stat.value} />}
-                                    {!inView && (stat.value % 1 !== 0 ? '0.0' : '0')}
-                                    {stat.suffix}
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-lg font-semibold">{stat.label}</p>
-                                <p className="text-sm text-muted-foreground mt-1">{stat.description}</p>
-                            </CardContent>
-                        </Card>
+
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                    {stats.map((stat, index) => (
+                        <div key={stat.label} className="flex flex-col items-center text-center group">
+                            <div className={cn("text-4xl md:text-6xl font-bold mb-4 tracking-tighter transition-all duration-500 group-hover:scale-110", stat.highlight)}>
+                                {inView && <AnimatedCounter from={0} to={stat.value} />}
+                                {!inView && (stat.decimal ? '0.0' : '0')}
+                                {stat.suffix}
+                            </div>
+                            <p className="text-sm md:text-base font-medium text-muted-foreground uppercase tracking-widest">
+                                {stat.label}
+                            </p>
+                        </div>
                     ))}
                 </div>
             </div>

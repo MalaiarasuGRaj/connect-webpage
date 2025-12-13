@@ -2,6 +2,7 @@ import { Hero } from "@/components/homepage/hero";
 import { ImpactStats } from "@/components/homepage/impact-stats";
 import { HomeServices } from "@/components/homepage/home-services";
 import { Testimonials } from "@/components/homepage/testimonials";
+import { CompanyMarquee } from "@/components/company-marquee";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -40,6 +41,7 @@ export default function Home() {
       <Hero />
       <HomeServices />
       <ImpactStats />
+      <CompanyMarquee />
       <Testimonials />
     </>
   );

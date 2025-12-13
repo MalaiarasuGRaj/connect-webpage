@@ -1,8 +1,28 @@
 import type { Metadata } from 'next';
+import { Outfit, PT_Sans, Caveat } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster"
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  display: 'swap',
+});
+
+const ptSans = PT_Sans({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-pt-sans",
+  display: 'swap',
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -21,14 +41,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">
-        <div className="flex min-h-screen flex-col">
+    <html lang="en" className={`scroll-smooth dark ${outfit.variable} ${ptSans.variable} ${caveat.variable}`}>
+      <body className="font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+        <div className="flex min-h-screen flex-col relative overflow-hidden">
+          <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background pointer-events-none z-[-1]" />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
