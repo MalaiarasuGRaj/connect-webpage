@@ -68,11 +68,6 @@ export default function AboutPage() {
                 <p className="text-[10px] text-muted-foreground/60 uppercase tracking-widest mt-1">
                   Connect Training Solutions
                 </p>
-                <Button variant="ghost" size="sm" className="mt-3 h-8 w-8 rounded-full hover:bg-[#0077b5] hover:text-white transition-colors" asChild>
-                  <Link href="https://www.linkedin.com/in/connectmurali/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                    <Linkedin className="h-4 w-4" />
-                  </Link>
-                </Button>
               </div>
             </div>
 

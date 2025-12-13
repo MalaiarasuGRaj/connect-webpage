@@ -24,9 +24,7 @@ export function CompanyMarquee() {
                 Our Students Work At
             </h2>
             {/* Marquee Container */}
-            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background">
-                <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-background to-transparent"></div>
-                <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-background to-transparent"></div>
+            <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
 
                 <div className="flex w-max animate-marquee py-8 transform-gpu">
                     {repeatedCompanies.map((company, index) => (
