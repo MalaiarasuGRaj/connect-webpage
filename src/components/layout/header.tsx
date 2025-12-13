@@ -3,9 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 
@@ -17,8 +17,38 @@ const navItems = [
   { href: "/careers", label: "Careers" },
 ];
 
+interface NavLinkProps extends React.ComponentProps<typeof Link> {
+  href: string;
+  label: string;
+  mobile?: boolean;
+  pathname: string | null;
+}
+
+const NavLink = ({ href, label, mobile = false, pathname, className, children, ...props }: NavLinkProps) => (
+  <Link
+    href={href}
+    className={cn(
+      "text-sm font-medium transition-all duration-300 hover:text-primary relative group",
+      mobile ? "text-lg py-2" : "",
+      pathname === href ? "text-primary font-bold" : "text-muted-foreground",
+      className
+    )}
+    {...props}
+  >
+    {label}
+    {!mobile && (
+      <span className={cn(
+        "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full",
+        pathname === href ? "w-full" : ""
+      )} />
+    )}
+    {children}
+  </Link>
+);
+
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const pathname = usePathname();
 
   React.useEffect(() => {
@@ -28,25 +58,6 @@ export function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const NavLink = ({ href, label, mobile = false }: { href: string; label: string, mobile?: boolean }) => (
-    <Link
-      href={href}
-      className={cn(
-        "text-sm font-medium transition-all duration-300 hover:text-primary relative group",
-        mobile ? "text-lg py-2" : "",
-        pathname === href ? "text-primary font-bold" : "text-muted-foreground"
-      )}
-    >
-      {label}
-      {!mobile && (
-        <span className={cn(
-          "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full",
-          pathname === href ? "w-full" : ""
-        )} />
-      )}
-    </Link>
-  );
 
   return (
     <header className={cn(
@@ -61,7 +72,7 @@ export function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <NavLink key={item.href} {...item} />
+            <NavLink key={item.href} {...item} pathname={pathname} />
           ))}
           <Button asChild size="sm" className="ml-4 bg-primary hover:bg-primary/90 text-white rounded-full px-6 shadow-lg shadow-primary/25 transition-all hover:shadow-primary/40 hover:-translate-y-0.5">
             <Link href="/contact">Contact Us</Link>
@@ -70,7 +81,7 @@ export function Header() {
 
         {/* Mobile Nav */}
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="hover:bg-white/10">
                 <Menu className="h-6 w-6" />
@@ -82,19 +93,24 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-8">
                   <Logo />
-                  <SheetClose asChild>
-                    {/* Close logic handled by trigger or default close */}
-                  </SheetClose>
                 </div>
                 <div className="flex flex-col space-y-4">
                   {navItems.map((item) => (
-                    <SheetClose asChild key={item.href}>
-                      <NavLink {...item} mobile />
-                    </SheetClose>
+                    <NavLink
+                      key={item.href}
+                      {...item}
+                      mobile
+                      pathname={pathname}
+                      onClick={() => setIsOpen(false)}
+                    />
                   ))}
                 </div>
                 <div className="mt-auto">
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg shadow-primary/25">
+                  <Button
+                    asChild
+                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg shadow-primary/25"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <Link href="/contact">Get in Touch</Link>
                   </Button>
                 </div>

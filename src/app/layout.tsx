@@ -1,4 +1,17 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  // Also good practice for PWA-like behavior if needed:
+  // themeColor: [
+  //   { media: '(prefers-color-scheme: light)', color: 'white' },
+  //   { media: '(prefers-color-scheme: dark)', color: 'black' },
+  // ],
+};
+
 import { Outfit, PT_Sans, Caveat } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/header';
